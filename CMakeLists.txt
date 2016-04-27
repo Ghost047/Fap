@@ -18,7 +18,6 @@ target_compile_options(flap
                       )
 
 # Copy the object file
-#add_custom_command( OUTPUT fap 
-#               COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_BINARY_DIR}/CMakeFiles/fap.dir/src/fap.cpp.o ${CMAKE_BINARY_DIR}/fap.o
-#               DEPENDS details/part.out 
-#               )
+add_custom_command( TARGET flap  POST_BUILD 
+               COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_BINARY_DIR}/CMakeFiles/flap.dir/src/fap.cpp.o ${CMAKE_BINARY_DIR}/flap.o
+               )
