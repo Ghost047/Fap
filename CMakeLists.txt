@@ -21,3 +21,11 @@ target_compile_options(flap
 add_custom_command( TARGET flap  POST_BUILD 
                COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_BINARY_DIR}/CMakeFiles/flap.dir/src/fap.cpp.o ${CMAKE_BINARY_DIR}/flap.o
                )
+
+# Generate the test add_executable
+add_executable(flap_test
+	       EXCLUDE_FROM_ALL
+               ${CMAKE_SOURCE_DIR}/test/main.cpp
+              )
+target_include_directories(flap_test PRIVATE ${CMAKE_SOURCE_DIR}/include)
+target_link_libraries(flap_test flap)
